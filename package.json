@@ -1,0 +1,24 @@
+{
+  "name": "rest-rsa-service",
+  "version": "1.0.0",
+  "description": "RESTful RSA Service",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostafavi/rest-rsa-service.git"
+  },
+  "keywords": [
+    "RSA",
+    "RESTful",
+    "API"
+  ],
+  "author": "Mohammadreza Mostafavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mostafavi/rest-rsa-service/issues"
+  },
+  "homepage": "https://github.com/mostafavi/rest-rsa-service#readme"
+}
