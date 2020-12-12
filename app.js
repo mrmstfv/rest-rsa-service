@@ -1,18 +1,35 @@
+/*!
+ * rest-rsa-service
+ * RESTful RSA Service
+ * Copyright(c) 2020 Mohammadreza Mostafavi
+ */
+
+
+/**
+* Module dependencies.
+*/
 const express = require('express');
 const bodyParser = require('body-parser');
-
-const service = express();
-
 const root = require('./routes/root');
 
+/**
+* Initiate express.
+*/
+const service = express();
+
+/**
+* Initiate middlewares.
+*/
 service.use((req, res, next) => {
     next();
 });
 
 service.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
 service.use(bodyParser.json());
 
+/**
+* Set HTTP Headers.
+*/
 service.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Authorization, X-Custom-Header, Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
@@ -24,18 +41,25 @@ service.use((req, res, next) => {
     next();
 });
 
-// Adding main routes
+/**
+* Initiate routes.
+*/
+
 service.use('/', root);
 
 
-// Handling invalid routes
+/**
+* Handling invalid routes
+*/
 service.use((req, res, next) => {
     const error = new Error("Not Found!");
     error.code = 404;
     next(error);
 });
 
-// Handling errors
+/**
+* Handling errors
+*/
 service.use((error, req, res, next) => {
     res.status(error.code || 500).json({ "message": error.message });
 });

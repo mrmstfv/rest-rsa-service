@@ -23,5 +23,5 @@ const server = http.createServer(serviceApp);
 let port = process.env.PORT || 8080;
 
 server.listen(port, () => {
-    console.log(`Service listening to port : ${port}`);
+    console.log(`RSA Service listening to port : ${port}`);
 });
